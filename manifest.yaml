@@ -25,9 +25,10 @@ containers:
 tests:
   - name: unit
     type: execution
-    command: py.test
     group: pydruid.tester
     container: pydruid.test
+    framework: pytest
+    targets: []
 deploy:
   - name: staging
     legacy: true
