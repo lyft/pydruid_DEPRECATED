@@ -47,16 +47,16 @@ class ListFilteredSpec(FilteredSpec):
 
     filter_type = 'listFiltered'
 
-    def __init__(self, values, is_whitelist=True):
+    def __init__(self, values, is_allowlist=True):
         self._values = values
-        self._is_whitelist = is_whitelist
+        self._is_allowlist = is_allowlist
 
     def build(self, dimension_spec):
         filtered_dimension_spec = super(ListFilteredSpec, self).build(dimension_spec)
         filtered_dimension_spec['values'] = self._values
 
-        if not self._is_whitelist:
-            filtered_dimension_spec['isWhitelist'] = False
+        if not self._is_allowlist:
+            filtered_dimension_spec['isAllowlist'] = False
 
         return filtered_dimension_spec
 
