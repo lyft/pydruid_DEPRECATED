@@ -30,12 +30,12 @@ tests:
     container: pydruid.test
 deploy:
   - name: staging
-    legacy: true
+    legacy: false
     role: lyftpypi-staging-iad-deploy
     orca: []
     environment: staging
   - name: production
-    legacy: true
+    legacy: false
     role: lyftpypi-production-iad-deploy
     automatic: true
     orca: []
