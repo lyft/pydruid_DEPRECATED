@@ -24,10 +24,18 @@ containers:
     command: /bin/bash -c 'while true; do sleep 3600; done'
 tests:
   - name: unit
+    type: jailed
+    framework: pytest
+  - name: unit_legacy
     type: execution
-    command: py.test
-    group: pydruid.tester
+    autotrigger: false
+    framework: pytest
+    coverage: false
+    markers: unit_legacy
     container: pydruid.test
+    group: pydruid.tester
+    targets:
+      - tests/unit
 deploy:
   - name: staging
     legacy: true
