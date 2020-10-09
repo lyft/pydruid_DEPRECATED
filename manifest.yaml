@@ -40,3 +40,4 @@ deploy:
     automatic: true
     orca: []
     environment: production
+disabled: true
