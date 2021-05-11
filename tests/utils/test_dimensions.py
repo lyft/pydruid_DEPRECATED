@@ -62,11 +62,11 @@ class TestDimensionSpec(object):
                 'delegate': delegate_spec,
                 'values': ['val1', 'val2'],
             }),
-            (ListFilteredSpec(['val1', 'val2'], is_whitelist=False), {
+            (ListFilteredSpec(['val1', 'val2'], is_allowlist=False), {
                 'type': 'listFiltered',
                 'delegate': delegate_spec,
                 'values': ['val1', 'val2'],
-                'isWhitelist': False,
+                'isAllowlist': False,
             }),
             (RegexFilteredSpec(r'\w+'), {
                 'type': 'regexFiltered',
@@ -103,16 +103,16 @@ class TestListFilteredSpec(object):
 
         assert actual == expected
 
-    def test_list_filtered_spec_whitelist(self):
+    def test_list_filtered_spec_allowlist(self):
         dim_spec = DimensionSpec('dim', 'out').build()
-        list_filtered_spec = ListFilteredSpec(['val1', 'val2'], is_whitelist=False)
+        list_filtered_spec = ListFilteredSpec(['val1', 'val2'], is_allowlist=False)
         actual = list_filtered_spec.build(dim_spec)
         expected_dim_spec = {'type': 'default', 'dimension': 'dim', 'outputName': 'out'}
         expected = {
             'type': 'listFiltered',
             'delegate': expected_dim_spec,
             'values': ['val1', 'val2'],
-            'isWhitelist': False,
+            'isAllowlist': False,
         }
 
         assert actual == expected
